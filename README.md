@@ -94,7 +94,7 @@ java version "1.15.0....
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-Expression (
-  Invoke-WebRequest https://github.com/ggzone/ggzone/raw/master/install.ps1 -UseBasicParsing
+  Invoke-WebRequest https://github.com/ggzone/jabba/raw/master/install.ps1 -UseBasicParsing
 ).Content
 ```
 
@@ -174,10 +174,20 @@ For more information see `jabba --help`.
 > PREREQUISITE: [go1.24.2](https://github.com/moovweb/gvm)
 
 ```sh
-git clone https://github.com/ggzone/jabba  
-cd jabba 
+git clone https://github.com/shyiko/jabba $GOPATH/src/github.com/shyiko/jabba 
+cd $GOPATH/src/github.com/shyiko/jabba 
+make fetch
 
-go build
+go run jabba.go
+
+# to test a change
+make test # or "test-coverage" if you want to get a coverage breakdown
+
+# to make a build
+make build # or "build-release" (latter is cross-compiling jabba to different OSs/ARCHs)   
+
+#or
+go build -ldflags "-s -w -X main.version=0.12.1"
 ```
 
 ## FAQ

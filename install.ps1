@@ -6,7 +6,7 @@ $jabbaVersion = if ($env:JABBA_VERSION) { $env:JABBA_VERSION } else { "latest" }
 if ($jabbaVersion -eq "latest")
 {
     # resolving "latest" to an actual tag
-    $jabbaVersion = (Invoke-RestMethod https://api.github.com/repos/ggzone/jabba/releases/latest).body
+    $jabbaVersion = (Invoke-RestMethod https://api.github.com/repos/ggzone/jabba/releases/latest).tag_name
 }
 
 if ($jabbaVersion -notmatch '^[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.+-]+)?$')

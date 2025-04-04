@@ -12,7 +12,7 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - Homebrew package is broken note in README.md
 
 
-## [0.12.1](https://github.com/shyiko/jabba/compare/0.12.0...0.12.1) - 2025-04-04
+## [0.12.1](https://github.com/ggzone/jabba/compare/0.12.0...0.12.1) - 2025-04-04
 ### Changed
 * Update the default value of the JABBA_INDEX environment variable to https://github.com/ggzone/jabba/raw/master/index.json.
 * modify index.json to support JDK 21/JDK24 on windows.
