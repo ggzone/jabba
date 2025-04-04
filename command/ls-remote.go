@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"strconv"
 	"strings"
+	"runtime"
 
 	"github.com/shyiko/jabba/cfg"
 	"github.com/shyiko/jabba/semver"
@@ -47,6 +48,15 @@ func LsRemote(os, arch string) (map[*semver.Version]string, error) {
 }
 
 func fetch(url string) (content []byte, err error) {
+	if strings.HasPrefix(url, "file://") {
+		file := strings.TrimPrefix(url, "file://")
+		if runtime.GOOS == "windows" {
+			// file:///C:/path/...
+			file = strings.Replace(strings.TrimPrefix(file, "/"), "/", "\\", -1)
+		}
+		return ioutil.ReadFile(file)
+	}
+	
 	client := http.Client{Transport: RedirectTracer{}}
 	res, err := client.Get(url)
 	if err != nil {
