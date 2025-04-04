@@ -11,6 +11,17 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Homebrew package is broken note in README.md
 
+
+## [0.12.1](https://github.com/shyiko/jabba/compare/0.12.0...0.12.1) - 2025-04-04
+### Changed
+* Update the default value of the JABBA_INDEX environment variable to https://github.com/ggzone/jabba/raw/master/index.json.
+* modify index.json to support JDK 21/JDK24 on windows.
+
+## [0.12.0] - 2025-04-04
+### Added
+* Support for local index.json file paths (e.g. `JABBA_INDEX=file:///path/to/index.json jabba install ...`).
+
+
 ## [0.11.2](https://github.com/shyiko/jabba/compare/0.11.1...0.11.2) - 2019-01-06
 
 - Oracle JDK installation on macOS ([#350](https://github.com/shyiko/jabba/issues/350)).

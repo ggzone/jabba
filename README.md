@@ -1,4 +1,4 @@
-# jabba ![Latest Version](https://img.shields.io/badge/latest-0.11.2-blue.svg) [![Build Status](https://travis-ci.org/shyiko/jabba.svg?branch=master)](https://travis-ci.org/shyiko/jabba)
+# jabba ![Latest Version](https://img.shields.io/badge/latest-0.12.1-blue.svg) [![Build Status](https://travis-ci.org/shyiko/jabba.svg?branch=master)](https://travis-ci.org/shyiko/jabba)
 
 Java Version Manager inspired by [nvm](https://github.com/creationix/nvm) (Node.js). Written in Go.
 
@@ -94,7 +94,7 @@ java version "1.15.0....
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Invoke-Expression (
-  Invoke-WebRequest https://github.com/shyiko/jabba/raw/master/install.ps1 -UseBasicParsing
+  Invoke-WebRequest https://github.com/ggzone/ggzone/raw/master/install.ps1 -UseBasicParsing
 ).Content
 ```
 
@@ -155,6 +155,11 @@ jabba use
 # set default java version on shell (since 0.2.0)
 # this version will automatically be "jabba use"d every time you open up a new terminal
 jabba alias default 1.8
+
+
+# Adjust the default value of the environment variable JABBA_INDEX.
+$Env:JABBA_INDEX="file://C:/Users/hunter/.jabba/index.json"
+jabba ls-remote
 ```
 
 > `.jabbarc` has to be a valid YAML file. JDK version can be specified as `jdk: 1.8` or simply as `1.8` 
@@ -166,20 +171,13 @@ For more information see `jabba --help`.
 
 ## Development
 
-> PREREQUISITE: [go1.8](https://github.com/moovweb/gvm)
+> PREREQUISITE: [go1.24.2](https://github.com/moovweb/gvm)
 
 ```sh
-git clone https://github.com/shyiko/jabba $GOPATH/src/github.com/shyiko/jabba 
-cd $GOPATH/src/github.com/shyiko/jabba 
-make fetch
+git clone https://github.com/ggzone/jabba  
+cd jabba 
 
-go run jabba.go
-
-# to test a change
-make test # or "test-coverage" if you want to get a coverage breakdown
-
-# to make a build
-make build # or "build-release" (latter is cross-compiling jabba to different OSs/ARCHs)   
+go build
 ```
 
 ## FAQ
